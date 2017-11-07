@@ -1,8 +1,12 @@
 # system.prop for jfltetmo
 #
-
 # cannot take spaces
 rild.libargs=-d /dev/smd0
 rild.libpath=/system/lib/libril-qc-qmi-1.so
 telephony.lteOnGsmDevice=1
 ro.telephony.default_network=9
+ro.build.fingerprint=samsung/jfltetmo/jfltetmo:4.4.4/KTU84P/M919UVUFNK2:user/release-keys
+ro.build.description=jfltetmo-user 4.4.4 KTU84P M919UVUFNK2 release-keys
+ro.product.model=SGH-M919
+ro.product.device=jfltetmo
+telephony.radioAccessFamily=gsm

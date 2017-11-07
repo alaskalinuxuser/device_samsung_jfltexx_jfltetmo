@@ -1,4 +1,5 @@
 # Copyright (C) 2011 The Android Open Source Project
+# Copyright (C) 2016 The JDCTeam
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,17 +22,20 @@
 # lines, full and maguro, hence its name.
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Inherit from jflte device
+$(call inherit-product, device/samsung/jfltetmo/full_jfltetmo.mk)
 
-# Inherit from jfltetmo device
-$(call inherit-product, device/samsung/jfltetmo/device.mk)
+# Inherit some common gzosp stuff.
+$(call inherit-product, vendor/gzosp/config/common_full_phone.mk)
 
-# Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := gzosp_jfltetmo
+PRODUCT_BUILD_PROP_OVERRIDES += \
+  PRODUCT_NAME=jfltetmo \
+  TARGET_DEVICE=jfltetmo \
+  BUILD_FINGERPRINT=samsung/jfltetmo/jfltetmo:4.4.4/KTU84P/M919UVUFNK2:user/release-keys \
+  PRIVATE_BUILD_DESC="jfltetmo-user 4.4.4 KTU84P M919UVUFNK2 release-keys"
+
 PRODUCT_DEVICE := jfltetmo
-PRODUCT_BRAND := samsung
-PRODUCT_MANUFACTURER := samsung
+PRODUCT_NAME := gzosp_jfltetmo
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += ro.product.model
 
